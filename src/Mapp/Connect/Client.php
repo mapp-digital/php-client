@@ -114,6 +114,7 @@ class Client {
   }
 
   public function getRequestHash(String $url, String $body = NULL, String $queryString = NULL) {
+    $url = preg_replace('/^.*\/api\/v/', '/api/v', $url);
     $data = $url;
     if (!empty($body))
       $data .= "|" . $body;
