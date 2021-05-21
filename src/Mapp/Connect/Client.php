@@ -14,7 +14,7 @@ class Client {
 
   const USERAGENT = 'MappConnectClientPHP/0.1.0';
 
-  public function __construct($baseUrl, $integrationId, $secret) {
+  public function __construct($baseUrl, $integrationId, $secret, $options = array()) {
     $this->baseUrl = $baseUrl;
     $this->integrationId = $integrationId;
     $this->secret = $secret;
@@ -29,7 +29,8 @@ class Client {
         'Accept' => 'application/json',
         'Content-Type' => 'application/json',
       ],
-      'handler' => $handlerStack
+      'handler' => $handlerStack,
+      'timeout'  => isset($options['timeout']) ? $options['timeout'] : 10.0
     ]);
   }
 
