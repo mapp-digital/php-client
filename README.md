@@ -2,7 +2,7 @@
 
 ## Overall information ##
 
-*PHP-Client* project is a middleware between *MappConnect* and *Shopware plugin*
+*PHP-Client* project is a middleware between *MappConnect* and *Shopware & Magetno plugin*
 to execute basic events:
 
 * connection status
@@ -12,7 +12,7 @@ to execute basic events:
 
 ## Installation ##
 
-1. *php-client* needs to be installed within *Shopware plugin*
+1. *php-client* needs to be installed within *Shopware & Magento plugin*
 * The project needs at least of php version 7.0 * 
 
 2. In the *Shopware plugin* you should first get *php-client* which you can install within *plugin* folder (in Shopware 6 you should go to path `/src/custom/plugins/[shopware_plugin_name]`), and then run `composer install`,
