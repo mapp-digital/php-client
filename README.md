@@ -12,16 +12,25 @@ to execute basic events:
 
 ## Installation ##
 
-1. *php-client* needs to be installed within *Shopware plugin*
+1. If upgrading from previous version please remember to update database
+`bin/console database:migrate MappConnect --all`
+
+Clear shopware cache
+`bin/console cache:clear`
+
+And deploy new UI assets
+`bin/console asset:install`
+
+2. *php-client* needs to be installed within *Shopware plugin*
 * The project needs at least of php version 7.0 * 
 
-2. In the *Shopware plugin* you should first get *php-client* which you can install within *plugin* folder (in Shopware 6 you should go to path `/src/custom/plugins/[shopware_plugin_name]`), and then run `composer install`,
+3. In the *Shopware plugin* you should first get *php-client* which you can install within *plugin* folder (in Shopware 6 you should go to path `/src/custom/plugins/[shopware_plugin_name]`), and then run `composer install`,
 
-3. *Shopware plugin* you can activate by 
+4. *Shopware plugin* you can activate by 
 
-3a. Going to *Administration* section in Shopware, and next go to *Settings->System->Plugins* and from the list **Install** ( you can also **Configure** it from context menu), and next **Activate** this within toggle button,
+4a. Going to *Administration* section in Shopware, and next go to *Settings->System->Plugins* and from the list **Install** ( you can also **Configure** it from context menu), and next **Activate** this within toggle button,
 
-3b. You can also activate this from the Shopware console by:
+4b. You can also activate this from the Shopware console by:
 
 * `php bin/console plugin:refresh`
 * `php bin/console plugin:install --activate MappConnect`
