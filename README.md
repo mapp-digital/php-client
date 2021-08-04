@@ -12,7 +12,8 @@ to execute basic events:
 
 ## Installation ##
 
-1. For *Shopware plugin* you should put plugin sources to Shopware `src/custom/plugins/` folder, app will automatically detect all plugins that residue within this folder,
+1. For *Shopware plugin* you should put plugin sources to Shopware `src/custom/plugins/` folder cleaning `shopware-plugin` names/folders first, 
+app will automatically detect all plugins that residue within this folder,
 
 2. If upgrading from previous version please remember to update database
 `bin/console database:migrate MappConnect --all`
