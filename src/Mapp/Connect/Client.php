@@ -100,7 +100,7 @@ class Client {
           $request->getUri()->getQuery()),
       "exp" => time()+3600
     ];
-    return JWT::encode($token, $this->secret);
+    return JWT::encode($token, $this->secret, 'HS256');
   }
 
   private function handleAuthorizationHeader() {
