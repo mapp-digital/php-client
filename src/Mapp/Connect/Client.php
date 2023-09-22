@@ -27,7 +27,7 @@ class Client
         $stack->setHandler(new CurlHandler());
 
         $middleware = Middleware::tap(function (RequestInterface $request) {
-            if ($_ENV['MAPP_CONNECT_CLIENT_DEBUG'] === 'debug' && !empty($_ENV['MAPP_CONNECT_CLIENT_LOG'])) {
+            if ($_ENV['MAPP_CONNECT_CLIENT_DEBUG'] === 'debug') {
                 $body = (string)$request->getBody();
 
                 if (!empty($body)) {
@@ -40,16 +40,12 @@ class Client
                     'headers' => $request->getHeaders(),
                 );
 
-                $logData = '';
-                $logData .= '[' . date('Y-m-d H:i:s') . ']';
+                $logData = '[' . date('Y-m-d H:i:s') . ']';
                 $logData .= ' ';
                 $logData .= $request->getUri();
                 $logData .= ' ';
                 $logData .= json_encode($debugData, JSON_PRETTY_PRINT);
-
-                $handle = fopen($_ENV['MAPP_CONNECT_CLIENT_LOG'], "a+");
-                fwrite($handle, $logData . "\n");
-                fclose($handle);
+                echo $logData;
             }
         });
 
