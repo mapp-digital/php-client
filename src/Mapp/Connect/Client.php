@@ -40,12 +40,12 @@ class Client
                     'headers' => $request->getHeaders(),
                 );
 
-                $logData = '[' . date('Y-m-d H:i:s') . ']';
-                $logData .= ' ';
+                $logData = self::USERAGENT;
+                $logData .= ': ';
                 $logData .= $request->getUri();
                 $logData .= ' ';
-                $logData .= json_encode($debugData, JSON_PRETTY_PRINT);
-                echo $logData;
+                $logData .= json_encode($debugData);
+                error_log($logData);
             }
         });
 
