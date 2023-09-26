@@ -27,7 +27,7 @@ class Client
         $stack->setHandler(new CurlHandler());
 
         $middleware = Middleware::tap(function (RequestInterface $request) {
-            if ($_ENV['MAPP_CONNECT_CLIENT_DEBUG'] === 'debug') {
+            if (array_key_exists('MAPP_CONNECT_CLIENT_DEBUG', $_ENV) && $_ENV['MAPP_CONNECT_CLIENT_DEBUG'] === 'debug') {
                 $body = (string)$request->getBody();
 
                 if (!empty($body)) {
